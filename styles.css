@@ -1,0 +1,27 @@
+
+@config "./tailwind.config.js"; 
+
+@import "tailwindcss"; 
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles from your original HTML */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.4);
+}
+
+/* Note: .toggle-checkbox classes aapke HTML mein use nahi ho rahe.
+   Aapke toggles pure Tailwind peer classes se banaye gaye hain.
+   Agar future mein use karna ho to yeh rakh sakte ho: */
+.toggle-checkbox:checked {
+  right: 0;
+  border-color: #3b82f6;
+}
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #3b82f6;
+}
