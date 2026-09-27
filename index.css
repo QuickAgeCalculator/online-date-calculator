@@ -1,0 +1,40 @@
+/* Custom UI Tweaks */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        /* Smooth accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .faq-answer.open {
+            max-height: 300px;
+        }
+
+        /* Dropdown animation */
+        .nav-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.2s ease;
+        }
+        .group:hover .nav-dropdown,
+        .nav-dropdown:focus-within {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Prevent layout shift for icons */
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }

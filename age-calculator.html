@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" class="data-theme="age-calculator">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exact Age Calculator – How Old Am I? | AgeCalc Pro</title>
+    <meta name="description" content="Free exact age calculator by date of birth. Calculate your exact age in years, months, days, hours, minutes, seconds, and countdown to your next birthday.">
+    <meta name="keywords" content="age calculator, how old am I, exact age calculator, date of birth age calculator, chronological age calculator, age in days, next birthday countdown">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Exact Age Calculator – How Old Am I? | AgeCalc Pro">
+    <meta property="og:description" content="Calculate your exact age down to the second with AgeCalc Pro. Free, fast, and precise online chronological age calculator.">
+
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+   
+    
+    <!-- Custom UI Tweaks -->
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- Schema.org JSON-LD FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I calculate my exact age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To calculate your exact age, enter your exact date of birth into our Age Calculator. Optionally select a target date (defaults to today). Click 'Calculate' to see your age broken down into years, months, days, total hours, minutes, and seconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the calculator account for leap years?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! AgeCalc Pro precisely accounts for leap years (containing 366 days instead of 365) and varying month lengths (28, 29, 30, or 31 days) to deliver 100% mathematical accuracy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I check age on a future date?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Use the 'Calculate age as of' field to select any future or past date to determine how old you or someone else was or will be at that specific moment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is chronological age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chronological age is the total amount of time elapsed from a person's birth to a given date, conventionally stated in years, months, and days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many days have I been alive?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our exact age calculator automatically converts your total lifespan into total days, total weeks, total hours, and total seconds lived."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Difference between Korean age and international age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Traditionally, in Korean age counting, a baby was considered 1 year old at birth and gained a year every New Year's Day. However, South Korea officially adopted the international age system (calculated from exact birth date) in June 2023."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Age calculator for baby / child chronological age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our calculator is ideal for infants and babies as it provides exact months, weeks, and days, which are crucial for tracking developmental milestones."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3 text-brand-600 hover:text-brand-700 transition">
+                    <svg class="w-8 h-8 fill-current text-brand-600" viewBox="0 0 24 24">
+                        <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6h6v-2h-4V7z"/>
+                    </svg>
+                    <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-gray-900">Calculator <span class="text-brand-600">Pro</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#calculator" class="text-brand-600 border-b-2 border-brand-600 pb-1 font-semibold">Age Calculator</a>
+                    <a href="#related" class="text-gray-600 hover:text-brand-600 transition">Time Zone Converter</a>
+                    <a href="#related" class="text-gray-600 hover:text-brand-600 transition">Date Calculator</a>
+                    
+                    <!-- Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center text-gray-600 hover:text-brand-600 transition py-2 focus:outline-none">
+                            <span>Other Calculators</span>
+                            <svg class="w-4 h-4 ml-1 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+                        </button>
+                        <div class="absolute right-0 w-56 bg-white border border-gray-100 rounded-lg shadow-xl py-2 hidden group-hover:block transition-all fade-in">
+                            <a href="#related" class="block px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Hours to Minutes Converter</a>
+                            <a href="#related" class="block px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Work Hours Calculator</a>
+                            <a href="#related" class="block px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Dog Years Calculator</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-2">
+            <a href="#calculator" class="block text-brand-600 font-semibold py-2">Age Calculator</a>
+            <a href="#related" class="block text-gray-600 hover:text-brand-600 py-2">Time Zone Converter</a>
+            <a href="#related" class="block text-gray-600 hover:text-brand-600 py-2">Date Calculator</a>
+            <div class="pt-2 border-t border-gray-100">
+                <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Other Tools</span>
+                <a href="#related" class="block text-gray-600 hover:text-brand-600 py-1 text-sm">Hours to Minutes Converter</a>
+                <a href="#related" class="block text-gray-600 hover:text-brand-600 py-1 text-sm">Work Hours Calculator</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Calculator Section -->
+    <main class="flex-grow">
+        <section id="calculator" class="pt-10 pb-12 sm:pt-16 sm:pb-20 bg-gradient-to-b from-brand-50/60 to-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                    Age Calculator – <span class="text-brand-600">How Old Am I?</span>
+                </h1>
+                <p class="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    Find your exact age using our precision date of birth age calculator. Get complete breakdowns in years, months, days, hours, and seconds, plus a live birthday countdown!
+                </p>
+
+                <!-- Age Calculator Card -->
+                <div class="mt-8 bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-10 text-left">
+                    <form id="age-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <!-- Date of Birth Input -->
+                        <div>
+                            <label for="dob" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Date of Birth <span class="text-red-500">*</span>
+                            </label>
+                            <input type="date" id="dob" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-gray-800">
+                        </div>
+
+                        <!-- Target Date Input -->
+                        <div>
+                            <label for="target-date" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Calculate age as of
+                            </label>
+                            <input type="date" id="target-date"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-gray-800">
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="md:col-span-2 flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="submit"
+                                class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-lg shadow-md hover:shadow-lg transition transform active:scale-95 text-center flex justify-center items-center gap-2">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H8V3a1 1 0 00-1-1zm8 5H6v2h8V7z" clip-rule="evenodd"/></svg>
+                                Calculate Exact Age
+                            </button>
+                            <button type="button" id="reset-btn"
+                                class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3.5 px-6 rounded-lg transition text-center">
+                                Reset
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Results Display Container -->
+                    <div id="results-container" class="hidden mt-10 border-t border-gray-100 pt-8 fade-in">
+                        
+                        <!-- Primary Result Box -->
+                        <div class="bg-brand-50 border border-brand-100 rounded-xl p-6 text-center">
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Your Exact Age</span>
+                            <div class="mt-2 text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight" id="res-exact-age">
+                                0 <span class="text-sm font-medium text-gray-500">Years</span>, 0 <span class="text-sm font-medium text-gray-500">Months</span>, 0 <span class="text-sm font-medium text-gray-500">Days</span>
+                            </div>
+                        </div>
+
+                        <!-- Total Lifespan Stats Grid -->
+                        <h3 class="mt-8 text-base font-bold text-gray-800 uppercase tracking-wider text-center sm:text-left">Total Time Summary</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 mt-3">
+                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200/80 text-center">
+                                <span class="text-xs text-gray-500 font-medium">Total Days</span>
+                                <p id="stat-days" class="text-lg sm:text-xl font-bold text-gray-900 mt-1">0</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200/80 text-center">
+                                <span class="text-xs text-gray-500 font-medium">Total Weeks</span>
+                                <p id="stat-weeks" class="text-lg sm:text-xl font-bold text-gray-900 mt-1">0</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200/80 text-center">
+                                <span class="text-xs text-gray-500 font-medium">Total Hours</span>
+                                <p id="stat-hours" class="text-lg sm:text-xl font-bold text-gray-900 mt-1">0</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200/80 text-center">
+                                <span class="text-xs text-gray-500 font-medium">Total Minutes</span>
+                                <p id="stat-minutes" class="text-lg sm:text-xl font-bold text-gray-900 mt-1">0</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200/80 text-center col-span-2 sm:col-span-1">
+                                <span class="text-xs text-gray-500 font-medium">Total Seconds</span>
+                                <p id="stat-seconds" class="text-lg sm:text-xl font-bold text-brand-600 mt-1">0</p>
+                            </div>
+                        </div>
+
+                        <!-- Next Birthday & Leap Year Section -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                            
+                            <!-- Birthday Countdown Card -->
+                            <div class="bg-gradient-to-br from-indigo-50 to-blue-50 border border-blue-100 p-5 rounded-xl flex items-start space-x-4">
+                                <div class="p-3 bg-brand-600 text-white rounded-lg shadow">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21V7a2 2 0 00-2-2H5a2 2 0 00-2 2v14h18z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-brand-700 uppercase tracking-wider">Next Birthday Countdown</h4>
+                                    <p id="next-bday-count" class="text-lg font-extrabold text-gray-900 mt-1">-- Days Remaining</p>
+                                    <p id="next-bday-date" class="text-xs text-gray-600 mt-0.5">--</p>
+                                </div>
+                            </div>
+
+                            <!-- Leap Year Indicator Card -->
+                            <div class="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-100 p-5 rounded-xl flex items-start space-x-4">
+                                <div class="p-3 bg-purple-600 text-white rounded-lg shadow">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-purple-700 uppercase tracking-wider">Leap Year Analysis</h4>
+                                    <p id="leap-year-info" class="text-sm font-semibold text-gray-900 mt-1">Birth year info</p>
+                                    <p id="leap-year-target" class="text-xs text-gray-600 mt-0.5">Target year info</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Content Section 1: How to Use -->
+        <section class="py-12 bg-white border-t border-gray-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 text-center">How to Use This Age Calculator</h2>
+                <p class="mt-2 text-center text-gray-600 text-sm sm:text-base">Calculate your chronological age effortlessly in three quick steps.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 relative">
+                        <span class="w-8 h-8 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center mb-4 text-sm">1</span>
+                        <h3 class="font-bold text-gray-900 text-lg">Enter Birth Date</h3>
+                        <p class="text-sm text-gray-600 mt-2">Select your exact date of birth using the calendar picker.</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 relative">
+                        <span class="w-8 h-8 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center mb-4 text-sm">2</span>
+                        <h3 class="font-bold text-gray-900 text-lg">Choose Target Date</h3>
+                        <p class="text-sm text-gray-600 mt-2">Leave it as today's date or select a future/past date for time travel calculation.</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 relative">
+                        <span class="w-8 h-8 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center mb-4 text-sm">3</span>
+                        <h3 class="font-bold text-gray-900 text-lg">Get Instant Breakdown</h3>
+                        <p class="text-sm text-gray-600 mt-2">View exact years, months, days, and total seconds lived alongside your next birthday countdown.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section 2: Mathematical / Chronological Explanation -->
+        <section class="py-12 bg-gray-50 border-t border-gray-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900">What is Exact Age & How is it Calculated?</h2>
+                <div class="mt-4 prose prose-blue text-gray-600 text-sm sm:text-base leading-relaxed space-y-4">
+                    <p>
+                        <strong>Chronological age</strong> is defined as the measure of time elapsed from a person’s date of birth to a given target date. While it sounds simple, manual age calculation can be tricky due to calendar irregularities such as leap years and varying month lengths (28, 29, 30, or 31 days).
+                    </p>
+                    <p>
+                        Our <strong>exact age calculator</strong> handles these mathematical variances seamlessly:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li><strong>Leap Year Rules:</strong> Years divisible by 4 (except century years not divisible by 400) add an extra day (Feb 29). We adjust all day counts accordingly.</li>
+                        <li><strong>Month Roll-overs:</strong> When subtracting days across month boundaries, our algorithm dynamically pulls the exact number of days in the preceding month.</li>
+                        <li><strong>Precision Time Metrics:</strong> Beyond basic years, we compute exact accumulated days, total elapsed hours (days × 24), minutes, and seconds.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section 3: Key Features Grid -->
+        <section class="py-12 bg-white border-t border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 text-center">Features of Our Age Calculator</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                    
+                    <div class="p-6 border border-gray-100 rounded-xl bg-gray-50/50 hover:bg-white hover:shadow-md transition">
+                        <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Instant & Precise</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-1">Calculates exact duration down to seconds in milliseconds without page refreshes.</p>
+                    </div>
+
+                    <div class="p-6 border border-gray-100 rounded-xl bg-gray-50/50 hover:bg-white hover:shadow-md transition">
+                        <div class="w-10 h-10 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Leap Year Aware</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-1">Accurately computes February 29 leap days across past and future decades.</p>
+                    </div>
+
+                    <div class="p-6 border border-gray-100 rounded-xl bg-gray-50/50 hover:bg-white hover:shadow-md transition">
+                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Birthday Countdown</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-1">Know exactly how many days and what day of the week your next birthday falls on.</p>
+                    </div>
+
+                    <div class="p-6 border border-gray-100 rounded-xl bg-gray-50/50 hover:bg-white hover:shadow-md transition">
+                        <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Time-Travel Mode</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-1">Calculate how old you were at key life milestones or will be on future dates.</p>
+                    </div>
+
+                    <div class="p-6 border border-gray-100 rounded-xl bg-gray-50/50 hover:bg-white hover:shadow-md transition">
+                        <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">100% Private & Free</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-1">All calculations run locally in your browser. No personal date data is sent to servers.</p>
+                    </div>
+
+                    <div class="p-6 border border-gray-100 rounded-xl bg-gray-50/50 hover:bg-white hover:shadow-md transition">
+                        <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Fully Responsive</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-1">Optimized layout for seamless experience across mobile, tablet, and desktop screens.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section 4: FAQ Accordion -->
+        <section class="py-12 bg-gray-50 border-t border-gray-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 text-center">Frequently Asked Questions</h2>
+                <p class="mt-2 text-center text-gray-600 text-sm">Common questions regarding chronological age calculations.</p>
+
+                <div class="mt-8 space-y-3" id="faq-accordion">
+                    
+                    <!-- FAQ 1 -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                        <button class="faq-btn w-full p-4 text-left font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                            <span>How do I calculate my exact age?</span>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-sm text-gray-600 border-t border-gray-50">
+                            Simply select your birth date in the calculator input above and click "Calculate Exact Age". The tool automatically determines your age in years, months, days, hours, and seconds based on the chosen target date.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                        <button class="faq-btn w-full p-4 text-left font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                            <span>Does the calculator account for leap years?</span>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-sm text-gray-600 border-t border-gray-50">
+                            Yes! Our algorithm dynamically tracks leap years containing 366 days and adjusts February day counts to guarantee 100% mathematical precision.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                        <button class="faq-btn w-full p-4 text-left font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                            <span>Can I check age on a future date?</span>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-sm text-gray-600 border-t border-gray-50">
+                            Yes. Change the "Calculate age as of" date input to any date in the future or past to see your chronological age on that specific date.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                        <button class="faq-btn w-full p-4 text-left font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                            <span>What is chronological age?</span>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-sm text-gray-600 border-t border-gray-50">
+                            Chronological age is the exact amount of time that has passed from a person's birth date to a given date, measured in standardized calendar units (years, months, days).
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                        <button class="faq-btn w-full p-4 text-left font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                            <span>How many days have I been alive?</span>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-sm text-gray-600 border-t border-gray-50">
+                            Once you enter your birth date, look at the Total Time Summary grid in the results section. It shows your exact total days lived, total weeks, hours, minutes, and seconds.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                        <button class="faq-btn w-full p-4 text-left font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                            <span>Difference between Korean age and international age?</span>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-sm text-gray-600 border-t border-gray-50">
+                            Under the traditional Korean system, a person turned 1 year old on the day they were born and gained a year on every New Year's Day. South Korea officially repealed this in June 2023 in favor of the international age standard used by this calculator.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 7 -->
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                        <button class="faq-btn w-full p-4 text-left font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                            <span>Age calculator for baby / child chronological age?</span>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-sm text-gray-600 border-t border-gray-50">
+                            Yes, this tool works perfectly for infants and children. It highlights exact months, weeks, and days, which are essential for pediatric tracking and milestone records.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section 5: Related Tools -->
+        <section id="related" class="py-12 bg-white border-t border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 text-center">Related Tools & Internal Calculators</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                    
+                    <a href="#calculator" class="p-5 border border-gray-200 rounded-xl hover:border-brand-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-gray-900 group-hover:text-brand-600 flex items-center justify-between">
+                            Date Difference Calculator
+                            <svg class="w-4 h-4 text-gray-400 group-hover:text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-2">Calculate exact days between two selected calendar dates.</p>
+                    </a>
+
+                    <a href="#calculator" class="p-5 border border-gray-200 rounded-xl hover:border-brand-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-gray-900 group-hover:text-brand-600 flex items-center justify-between">
+                            Birthday Countdown
+                            <svg class="w-4 h-4 text-gray-400 group-hover:text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-2">Track upcoming birthdays with customized day count tickers.</p>
+                    </a>
+
+                    <a href="#calculator" class="p-5 border border-gray-200 rounded-xl hover:border-brand-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-gray-900 group-hover:text-brand-600 flex items-center justify-between">
+                            Age Difference Calculator
+                            <svg class="w-4 h-4 text-gray-400 group-hover:text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-2">Compare the age gap between two individuals down to days.</p>
+                    </a>
+
+                    <a href="#calculator" class="p-5 border border-gray-200 rounded-xl hover:border-brand-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-gray-900 group-hover:text-brand-600 flex items-center justify-between">
+                            Dog Years Calculator
+                            <svg class="w-4 h-4 text-gray-400 group-hover:text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-2">Convert human years into accurate dog age equivalencies.</p>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <div class="md:col-span-2">
+                    <span class="font-extrabold text-xl text-white tracking-tight">AgeCalc <span class="text-brand-500">Pro</span></span>
+                    <p class="text-xs sm:text-sm mt-3 text-gray-400 max-w-sm leading-relaxed">
+                        AgeCalc Pro provides fast, accurate, and completely free time calculation tools for everyday personal and professional use.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase text-gray-200 tracking-wider mb-3">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><a href="#calculator" class="hover:text-white transition">Age Calculator</a></li>
+                        <li><a href="#related" class="hover:text-white transition">Time Zone Converter</a></li>
+                        <li><a href="#related" class="hover:text-white transition">Date Calculator</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase text-gray-200 tracking-wider mb-3">Legal & Information</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition">Sitemap</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-800 text-center text-xs text-gray-500">
+                &copy; <span id="current-year">2026</span> AgeCalc Pro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla JS Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Dynamic Copyright Year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Set default date for "target-date" input to Today
+            const targetInput = document.getElementById('target-date');
+            const dobInput = document.getElementById('dob');
+            const todayStr = new Date().toISOString().split('T')[0];
+            targetInput.value = todayStr;
+            dobInput.max = todayStr;
+
+            // FAQ Accordion Handlers
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('svg');
+                    
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+
+            // Helper: Check leap year
+            function isLeapYear(year) {
+                return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+            }
+
+            // Helper: Days in month
+            function getDaysInMonth(year, month) {
+                return new Date(year, month + 1, 0).getDate();
+            }
+
+            // Age Calculation Logic
+            const form = document.getElementById('age-form');
+            const resultsContainer = document.getElementById('results-container');
+            let timerInterval = null;
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                calculateAge();
+            });
+
+            document.getElementById('reset-btn').addEventListener('click', () => {
+                dobInput.value = '';
+                targetInput.value = todayStr;
+                resultsContainer.classList.add('hidden');
+                if (timerInterval) clearInterval(timerInterval);
+            });
+
+            function calculateAge() {
+                const dobVal = dobInput.value;
+                if (!dobVal) return;
+
+                const dob = new Date(dobVal);
+                const targetVal = targetInput.value ? targetInput.value : todayStr;
+                let target = new Date(targetVal);
+
+                // Set time to end of day if target is today to give complete accuracy
+                if (targetVal === todayStr) {
+                    const now = new Date();
+                    target.setHours(now.getHours(), now.getMinutes(), now.getSeconds());
+                } else {
+                    target.setHours(23, 59, 59);
+                }
+
+                if (dob > target) {
+                    alert('Date of birth cannot be in the future relative to the target date!');
+                    return;
+                }
+
+                // Calculate Exact Years, Months, Days
+                let birthYear = dob.getFullYear();
+                let birthMonth = dob.getMonth();
+                let birthDay = dob.getDate();
+
+                let targetYear = target.getFullYear();
+                let targetMonth = target.getMonth();
+                let targetDay = target.getDate();
+
+                let years = targetYear - birthYear;
+                let months = targetMonth - birthMonth;
+                let days = targetDay - birthDay;
+
+                if (days < 0) {
+                    months--;
+                    // Get days in previous month
+                    let prevMonth = targetMonth === 0 ? 11 : targetMonth - 1;
+                    let prevYear = targetMonth === 0 ? targetYear - 1 : targetYear;
+                    days += getDaysInMonth(prevYear, prevMonth);
+                }
+
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+
+                // Render Primary Exact Age
+                document.getElementById('res-exact-age').innerHTML = 
+                    `${years} <span class="text-sm font-medium text-gray-500">Years</span>, ` +
+                    `${months} <span class="text-sm font-medium text-gray-500">Months</span>, ` +
+                    `${days} <span class="text-sm font-medium text-gray-500">Days</span>`;
+
+                // Calculate Totals
+                const diffTime = Math.abs(target - dob);
+                const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                const totalWeeks = Math.floor(totalDays / 7);
+                const totalHours = totalDays * 24;
+                const totalMinutes = totalHours * 60;
+                const totalSeconds = totalDays * 86400;
+
+                document.getElementById('stat-days').textContent = totalDays.toLocaleString();
+                document.getElementById('stat-weeks').textContent = totalWeeks.toLocaleString();
+                document.getElementById('stat-hours').textContent = totalHours.toLocaleString();
+                document.getElementById('stat-minutes').textContent = totalMinutes.toLocaleString();
+                document.getElementById('stat-seconds').textContent = totalSeconds.toLocaleString();
+
+                // Next Birthday Countdown
+                let nextBdayYear = targetYear;
+                let nextBday = new Date(nextBdayYear, birthMonth, birthDay);
+
+                if (nextBday < target) {
+                    nextBdayYear++;
+                    nextBday = new Date(nextBdayYear, birthMonth, birthDay);
+                }
+
+                const bdayDiff = nextBday - target;
+                const daysToBday = Math.ceil(bdayDiff / (1000 * 60 * 60 * 24));
+                
+                const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const bdayDayName = daysOfWeek[nextBday.getDay()];
+
+                document.getElementById('next-bday-count').textContent = `${daysToBday} Days Remaining`;
+                document.getElementById('next-bday-date').textContent = `Falls on ${bdayDayName}, ${nextBday.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}`;
+
+                // Leap Year Information
+                const dobLeap = isLeapYear(birthYear);
+                const targetLeap = isLeapYear(targetYear);
+
+                document.getElementById('leap-year-info').textContent = `${birthYear} ${dobLeap ? 'was a Leap Year (366 days)' : 'was a Standard Year (365 days)'}`;
+                document.getElementById('leap-year-target').textContent = `${targetYear} ${targetLeap ? 'is a Leap Year (366 days)' : 'is a Standard Year (365 days)'}`;
+
+                // Show Results Container
+                resultsContainer.classList.remove('hidden');
+
+                // Live Seconds Counter Ticker
+                if (timerInterval) clearInterval(timerInterval);
+                let currentSec = totalSeconds;
+                timerInterval = setInterval(() => {
+                    currentSec++;
+                    document.getElementById('stat-seconds').textContent = currentSec.toLocaleString();
+                }, 1000);
+            }
+
+        });
+    </script>
+</body>
+</html>

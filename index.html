@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online calculators and converters for age, time, BMI, loan EMI, unit conversion and more. Fast, accurate, mobile-friendly. No signup required.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Calculator-Pro – Free Online Calculators & Converters</title>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Inter font with font-display: swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN (defer non-critical) -->
+    
+    
+<link rel="stylesheet" href="./css/styles.css">
+    
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+    <!-- ========== HEADER ========== -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 group" aria-label="Calculator-Pro Home">
+                    <div class="w-9 h-9 rounded-lg bg-brand-500 flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:bg-brand-600 transition-colors">
+                        C
+                    </div>
+                    <span class="text-xl font-bold text-gray-900 tracking-tight">Calculator-Pro</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+                    <!-- Age -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-brand-600 rounded-lg hover:bg-brand-50 transition-colors flex items-center gap-1">
+                            Age
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="nav-dropdown absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                            <a href="age-calculator.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Age Calculator</a>
+                            <a href="#age-calculator" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Birthday Calculator</a>
+                        </div>
+                    </div>
+
+                    <!-- Time -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-brand-600 rounded-lg hover:bg-brand-50 transition-colors flex items-center gap-1">
+                            Time
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="nav-dropdown absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                            <a href="time-calculator.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Time Calculator</a>
+                            <a href="date-calculator.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Date Calculator</a>
+                            <a href="Work-Days-Calclulator.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Work Days Calculator</a>
+                        </div>
+                    </div>
+
+                    <!-- Converter -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-brand-600 rounded-lg hover:bg-brand-50 transition-colors flex items-center gap-1">
+                            Converter
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="nav-dropdown absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                            <a href="#unit-converters" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Area Converter</a>
+                            <a href="#unit-converters" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Length Converter</a>
+                        </div>
+                    </div>
+
+                    <!-- Financial -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-brand-600 rounded-lg hover:bg-brand-50 transition-colors flex items-center gap-1">
+                            Financial
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="nav-dropdown absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                            <a href="#financial-calculators" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Loan EMI Calculator</a>
+                            <a href="#financial-calculators" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">SIP Calculator</a>
+                        </div>
+                    </div>
+
+                    <!-- Health -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-brand-600 rounded-lg hover:bg-brand-50 transition-colors flex items-center gap-1">
+                            Health
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="nav-dropdown absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                            <a href="#health-calculators" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">BMI Calculator</a>
+                            <a href="#health-calculators" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600">Calorie Calculator</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile Hamburger -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-500" aria-label="Open menu" aria-expanded="false">
+                    <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-100 bg-white">
+            <nav class="px-4 py-4 space-y-1" aria-label="Mobile navigation">
+                <div class="space-y-1">
+                    <p class="px-3 py-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Age</p>
+                    <a href="age-calculators.html" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">Age Calculator</a>
+                    <a href="#age-calculators" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">Birthday Calculator</a>
+                </div>
+                <div class="space-y-1 pt-2">
+                    <p class="px-3 py-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Time</p>
+                    <a href="time-calculator.html" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">Time Calculator</a>
+                    <a href="date-calculator.html" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">Date Calculator</a>
+                    <a href="work-days-calculator.html" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">Work Days Calculator</a>
+                </div>
+                <div class="space-y-1 pt-2">
+                    <p class="px-3 py-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Converter</p>
+                    <a href="#unit-converters" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">Area Converter</a>
+                    <a href="#unit-converters" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">Length Converter</a>
+                </div>
+                <div class="space-y-1 pt-2">
+                    <p class="px-3 py-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Financial</p>
+                    <a href="#financial-calculators" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">Loan EMI Calculator</a>
+                    <a href="#financial-calculators" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">SIP Calculator</a>
+                </div>
+                <div class="space-y-1 pt-2">
+                    <p class="px-3 py-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Health</p>
+                    <a href="#health-calculators" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">BMI Calculator</a>
+                    <a href="#health-calculators" class="block px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-brand-50 hover:text-brand-600">Calorie Calculator</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== HERO ========== -->
+        <section class="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-blue-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight leading-tight">
+                        Free Online Calculators &amp; Converters
+                    </h1>
+                    <p class="mt-5 text-base sm:text-lg text-gray-600 leading-relaxed">
+                        Instantly calculate age, time difference, timezone, BMI, loan EMI, percentage, unit conversion and more. All tools are free, accurate, mobile-friendly and work without signup.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#popular" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-semibold rounded-xl shadow-lg shadow-brand-500/25 hover:shadow-xl hover:shadow-brand-500/30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
+                            Explore All Tools
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== POPULAR ========== -->
+        <section id="popular" class="py-14 sm:py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Popular Calculators &amp; Converters</h2>
+                    <p class="mt-2 text-gray-600">Most used tools by thousands of users every day</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- Card -->
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all duration-200">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box rounded-xl bg-blue-50 text-brand-500 flex items-center justify-center text-xl">📅</div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">Age Calculator</h3>
+                                <p class="mt-1 text-sm text-gray-500 line-clamp-2">Calculate exact age in years, months and days from date of birth.</p>
+                                <a href="#age-calculators" class="inline-flex items-center mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all duration-200">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center text-xl">⏱️</div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">Time Calculator</h3>
+                                <p class="mt-1 text-sm text-gray-500 line-clamp-2">Add or subtract hours, minutes and seconds with ease.</p>
+                                <a href="#time-calculators" class="inline-flex items-center mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all duration-200">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box rounded-xl bg-cyan-50 text-cyan-500 flex items-center justify-center text-xl">🌍</div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">Timezone Converter</h3>
+                                <p class="mt-1 text-sm text-gray-500 line-clamp-2">Convert time between any two time zones instantly.</p>
+                                <a href="#time-calculators" class="inline-flex items-center mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all duration-200">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center text-xl">⚖️</div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">BMI Calculator</h3>
+                                <p class="mt-1 text-sm text-gray-500 line-clamp-2">Check your Body Mass Index and health category.</p>
+                                <a href="#health-calculators" class="inline-flex items-center mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all duration-200">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-xl">💰</div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">Loan EMI Calculator</h3>
+                                <p class="mt-1 text-sm text-gray-500 line-clamp-2">Calculate monthly EMI for home, car or personal loans.</p>
+                                <a href="#financial-calculators" class="inline-flex items-center mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all duration-200">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box rounded-xl bg-violet-50 text-violet-500 flex items-center justify-center text-xl">%</div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">Percentage Calculator</h3>
+                                <p class="mt-1 text-sm text-gray-500 line-clamp-2">Find percentages, increases, decreases and more.</p>
+                                <a href="#math-calculators" class="inline-flex items-center mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== AGE CALCULATORS ========== -->
+        <section id="age-calculators" class="py-14 sm:py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Age Calculators</h2>
+                    <p class="mt-1 text-gray-600">Precise age and birthday tools</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-blue-50 text-brand-500 flex items-center justify-center text-xl mb-3">📅</div>
+                        <h3 class="font-semibold text-gray-900">Age Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Exact age in years, months &amp; days.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-pink-50 text-pink-500 flex items-center justify-center text-xl mb-3">🎂</div>
+                        <h3 class="font-semibold text-gray-900">Birthday Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Days until next birthday &amp; age on date.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center text-xl mb-3">👥</div>
+                        <h3 class="font-semibold text-gray-900">Age Difference Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Compare ages between two people.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center text-xl mb-3">🐕</div>
+                        <h3 class="font-semibold text-gray-900">Dog Age Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Convert dog years to human years.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TIME & DATE ========== -->
+        <section id="time-calculators" class="py-14 sm:py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Time &amp; Date Calculators</h2>
+                    <p class="mt-1 text-gray-600">Everything related to time and dates</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center text-xl mb-3">⏱️</div>
+                        <h3 class="font-semibold text-gray-900">Time Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Add or subtract time values easily.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center text-xl mb-3">⏳</div>
+                        <h3 class="font-semibold text-gray-900">Time Duration Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Find duration between two times.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-cyan-50 text-cyan-500 flex items-center justify-center text-xl mb-3">🌍</div>
+                        <h3 class="font-semibold text-gray-900">Timezone Converter</h3>
+                        <p class="mt-1 text-sm text-gray-500">Convert between world time zones.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-teal-50 text-teal-500 flex items-center justify-center text-xl mb-3">📆</div>
+                        <h3 class="font-semibold text-gray-900">Date Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Add/subtract days from any date.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center text-xl mb-3">💼</div>
+                        <h3 class="font-semibold text-gray-900">Work Hours Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Calculate total hours worked.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center text-xl mb-3">⏰</div>
+                        <h3 class="font-semibold text-gray-900">Countdown Timer</h3>
+                        <p class="mt-1 text-sm text-gray-500">Count down to any future date.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== UNIT CONVERTERS ========== -->
+        <section id="unit-converters" class="py-14 sm:py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Unit Converters</h2>
+                    <p class="mt-1 text-gray-600">Convert between common units instantly</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-green-50 text-green-500 flex items-center justify-center text-xl mb-3">📏</div>
+                        <h3 class="font-semibold text-gray-900">Length Converter</h3>
+                        <p class="mt-1 text-sm text-gray-500">Meters, feet, inches, miles &amp; more.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Converter →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-lime-50 text-lime-600 flex items-center justify-center text-xl mb-3">⚖️</div>
+                        <h3 class="font-semibold text-gray-900">Weight Converter</h3>
+                        <p class="mt-1 text-sm text-gray-500">Kilograms, pounds, ounces, stones.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Converter →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-red-50 text-red-500 flex items-center justify-center text-xl mb-3">🌡️</div>
+                        <h3 class="font-semibold text-gray-900">Temperature Converter</h3>
+                        <p class="mt-1 text-sm text-gray-500">Celsius, Fahrenheit, Kelvin.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Converter →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center text-xl mb-3">📐</div>
+                        <h3 class="font-semibold text-gray-900">Area Converter</h3>
+                        <p class="mt-1 text-sm text-gray-500">Square meters, acres, hectares.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Converter →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl mb-3">🚀</div>
+                        <h3 class="font-semibold text-gray-900">Speed Converter</h3>
+                        <p class="mt-1 text-sm text-gray-500">km/h, mph, m/s, knots.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Converter →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-teal-50 text-teal-500 flex items-center justify-center text-xl mb-3">🧪</div>
+                        <h3 class="font-semibold text-gray-900">Volume Converter</h3>
+                        <p class="mt-1 text-sm text-gray-500">Liters, gallons, cups, ml.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Converter →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FINANCIAL ========== -->
+        <section id="financial-calculators" class="py-14 sm:py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Financial Calculators</h2>
+                    <p class="mt-1 text-gray-600">Plan loans, investments and taxes</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-xl mb-3">💰</div>
+                        <h3 class="font-semibold text-gray-900">Loan EMI Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Monthly EMI for any loan amount.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-green-50 text-green-500 flex items-center justify-center text-xl mb-3">📈</div>
+                        <h3 class="font-semibold text-gray-900">SIP Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Estimate returns on systematic investments.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center text-xl mb-3">🧾</div>
+                        <h3 class="font-semibold text-gray-900">GST Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Add or remove GST from amount.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== HEALTH ========== -->
+        <section id="health-calculators" class="py-14 sm:py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Health &amp; Fitness Calculators</h2>
+                    <p class="mt-1 text-gray-600">Track body metrics and nutrition</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center text-xl mb-3">⚖️</div>
+                        <h3 class="font-semibold text-gray-900">BMI Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Body Mass Index and category.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-red-50 text-red-500 flex items-center justify-center text-xl mb-3">🔥</div>
+                        <h3 class="font-semibold text-gray-900">Calorie Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Daily calorie needs based on activity.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-pink-50 text-pink-500 flex items-center justify-center text-xl mb-3">💪</div>
+                        <h3 class="font-semibold text-gray-900">Body Fat Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Estimate body fat percentage.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== MATH ========== -->
+        <section id="math-calculators" class="py-14 sm:py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Math &amp; Percentage Calculators</h2>
+                    <p class="mt-1 text-gray-600">Everyday math made simple</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-violet-50 text-violet-500 flex items-center justify-center text-xl mb-3">%</div>
+                        <h3 class="font-semibold text-gray-900">Percentage Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Calculate any percentage easily.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-fuchsia-50 text-fuchsia-500 flex items-center justify-center text-xl mb-3">📊</div>
+                        <h3 class="font-semibold text-gray-900">Average Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Mean of any set of numbers.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center text-xl mb-3">🔢</div>
+                        <h3 class="font-semibold text-gray-900">Ratio Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Simplify and scale ratios.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                    <article class="group bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-brand-100 transition-all">
+                        <div class="icon-box rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center text-xl mb-3">🧮</div>
+                        <h3 class="font-semibold text-gray-900">Scientific Calculator</h3>
+                        <p class="mt-1 text-sm text-gray-500">Advanced math functions.</p>
+                        <a href="#" class="inline-flex mt-3 text-sm font-medium text-brand-600 hover:text-brand-700">Use Calculator →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== WHY CHOOSE ========== -->
+        <section class="py-14 sm:py-16 bg-gradient-to-b from-brand-50 to-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Why Choose Calculator-Pro?</h2>
+                    <p class="mt-2 text-gray-600">Built for speed, accuracy and privacy</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-500 flex items-center justify-center text-2xl mb-4">🆓</div>
+                        <h3 class="font-semibold text-lg text-gray-900">Free Forever</h3>
+                        <p class="mt-2 text-sm text-gray-600">All calculators are completely free. No hidden charges, no premium tiers.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 rounded-xl bg-green-50 text-green-500 flex items-center justify-center text-2xl mb-4">⚡</div>
+                        <h3 class="font-semibold text-lg text-gray-900">Instant Results</h3>
+                        <p class="mt-2 text-sm text-gray-600">Lightning-fast calculations that run entirely in your browser.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center text-2xl mb-4">📱</div>
+                        <h3 class="font-semibold text-lg text-gray-900">Mobile-Friendly</h3>
+                        <p class="mt-2 text-sm text-gray-600">Perfect experience on phones, tablets and desktops.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center text-2xl mb-4">🔒</div>
+                        <h3 class="font-semibold text-lg text-gray-900">No Signup Required</h3>
+                        <p class="mt-2 text-sm text-gray-600">Start calculating immediately. We never ask for personal data.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-2xl mb-4">🎯</div>
+                        <h3 class="font-semibold text-lg text-gray-900">Accurate Calculations</h3>
+                        <p class="mt-2 text-sm text-gray-600">Trusted formulas used by professionals and students worldwide.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-500 flex items-center justify-center text-2xl mb-4">🛡️</div>
+                        <h3 class="font-semibold text-lg text-gray-900">Privacy Focused</h3>
+                        <p class="mt-2 text-sm text-gray-600">All processing happens locally. Nothing is sent to our servers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== HOW TO USE ========== -->
+        <section class="py-14 sm:py-16 bg-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">How to Use Our Calculators &amp; Converters</h2>
+                </div>
+                <ol class="space-y-6">
+                    <li class="flex gap-4">
+                        <span class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center">1</span>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Choose a Tool</h3>
+                            <p class="mt-1 text-gray-600 text-sm">Browse categories or use the navigation menu to find the calculator or converter you need.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center">2</span>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Enter Your Values</h3>
+                            <p class="mt-1 text-gray-600 text-sm">Fill in the required fields. All inputs are clearly labeled and validated for accuracy.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center">3</span>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Get Instant Results</h3>
+                            <p class="mt-1 text-gray-600 text-sm">Results appear immediately. Copy, share or refine your inputs as needed.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ========== FAQ ========== -->
+        <section class="py-14 sm:py-16 bg-gray-50">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
+                </div>
+                <div class="space-y-3" id="faq-container">
+                    <!-- FAQ Item -->
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                            <span>What is the best free online age calculator?</span>
+                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer px-5">
+                            <p class="pb-4 text-sm text-gray-600">Calculator-Pro’s Age Calculator is one of the most accurate free tools available. It computes exact age in years, months and days and works offline in your browser.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                            <span>How do I convert time zones online?</span>
+                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer px-5">
+                            <p class="pb-4 text-sm text-gray-600">Use our Timezone Converter. Select the source and destination time zones, enter the time, and get the converted result instantly—no account needed.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                            <span>Are these calculators accurate?</span>
+                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer px-5">
+                            <p class="pb-4 text-sm text-gray-600">Yes. We use industry-standard formulas and thoroughly tested algorithms. Results match professional financial and scientific tools.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                            <span>Do I need to create an account?</span>
+                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer px-5">
+                            <p class="pb-4 text-sm text-gray-600">No. Every tool on Calculator-Pro works without registration or login. Just open the page and start calculating.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                            <span>Are the calculators mobile-friendly?</span>
+                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer px-5">
+                            <p class="pb-4 text-sm text-gray-600">Absolutely. The entire site is built mobile-first with responsive layouts, large touch targets and optimized performance on all devices.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                            <span>Is my data private?</span>
+                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer px-5">
+                            <p class="pb-4 text-sm text-gray-600">Yes. All calculations run locally in your browser. We do not store, transmit or track any of the values you enter.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                            <span>Can I use these tools offline?</span>
+                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer px-5">
+                            <p class="pb-4 text-sm text-gray-600">Once the page is loaded, most calculators continue to work even if your connection drops, because the logic runs client-side.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                            <span>Do you support dark mode?</span>
+                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer px-5">
+                            <p class="pb-4 text-sm text-gray-600">Dark mode support is planned for a future update. The current design uses a clean light theme optimized for readability.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-5 py-4 text-left font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500" aria-expanded="false">
+                            <span>How often are the calculators updated?</span>
+                            <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer px-5">
+                            <p class="pb-4 text-sm text-gray-600">We continuously improve formulas and add new tools. The core calculation engines are stable and reviewed regularly for accuracy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-white font-bold">C</div>
+                        <span class="text-lg font-bold text-white">Calculator-Pro</span>
+                    </div>
+                    <p class="text-sm text-gray-400">Free, accurate and privacy-focused online calculators for everyone.</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Popular Tools</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#age-calculators" class="hover:text-white transition-colors">Age Calculator</a></li>
+                        <li><a href="#time-calculators" class="hover:text-white transition-colors">Timezone Converter</a></li>
+                        <li><a href="#health-calculators" class="hover:text-white transition-colors">BMI Calculator</a></li>
+                        <li><a href="#financial-calculators" class="hover:text-white transition-colors">Loan EMI Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#time-calculators" class="hover:text-white transition-colors">Time &amp; Date</a></li>
+                        <li><a href="#unit-converters" class="hover:text-white transition-colors">Unit Converters</a></li>
+                        <li><a href="#financial-calculators" class="hover:text-white transition-colors">Financial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+                &copy; 2025 Calculator-Pro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal JS: Mobile menu + FAQ accordion -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+                const isOpen = answer.classList.contains('open');
+
+                // Close all others
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                document.querySelectorAll('.faq-toggle svg').forEach(i => i.classList.remove('rotate-180'));
+                document.querySelectorAll('.faq-toggle').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    icon.classList.add('rotate-180');
+                    button.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

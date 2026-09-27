@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator - Exact Age in Years, Months & Days | Free Online</title>
+    <meta name="description" content="Accurate online work days calculator and business days calculator. Easily calculate working days between two dates, add business days, and exclude weekends and holidays.">
+    <meta name="keywords" content="work days calculator, business days calculator, working days between two dates, how many working days, exclude weekends and holidays, business days excluding holidays, add business days to a date">
+    <link rel="canonical" href="https://timecalcpro.com/">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Work Days Calculator – How Many Business Days Between Two Dates?">
+    <meta property="og:description" content="Calculate business days, exclude weekends and holidays, or add working days to any date instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timecalcpro.com/">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    
+<link rel="stylesheet" href="./css/styles.css">
+    
+
+    <!-- FAQ JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many working days between two dates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The number of working days between two dates is calculated by subtracting weekend days (typically Saturday and Sunday) and official public holidays from the total calendar days within that range."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are start and end dates included?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By default, standard calendar formulas count the interval between dates. However, our calculator gives you a toggle option to include or exclude the start and end dates to suit your project or payroll needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to calculate business days excluding holidays?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To calculate business days excluding holidays, input your start and end dates into our tool, select your weekend configuration, and add your specific holiday dates in the holiday selector. The calculator automatically subtracts non-working days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many working days in a year / month / 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In a standard non-leap year (like 2026), there are 365 calendar days, which typically yields around 261 working days assuming 52 weekends (104 weekend days) and excluding federal or state public holidays."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Difference between working days and calendar days?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Calendar days include every day of the week from Monday through Sunday. Working days (or business days) exclude weekends and official public holidays when regular business activities take place."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to add 30 business days to a date?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the 'Add / Subtract Business Days' tab in our tool. Enter your start date, input '30', select your weekend days and holidays, and click calculate to find the exact target completion date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do public holidays count as working days?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, public or bank holidays are recognized as non-working days in standard corporate and legal business day calculations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I exclude only Sundays / custom weekends?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Our calculator provides custom weekend options allowing you to exclude only Sundays, Friday/Saturday, or any custom weekend arrangement suited to your region or work schedule."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Brand Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-bold text-brand-600 hover:text-brand-700 transition">
+                        <i class="fa-solid me-1 fa-calculator text-brand-500"></i>
+                        <span>Calculator <span class="text-slate-800">Pro</span></span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center text-sm font-medium">
+                    <a href="#age-calculator" class="text-slate-600 hover:text-brand-600 transition">Age Calculator</a>
+                    <a href="#timezone-converter" class="text-slate-600 hover:text-brand-600 transition">Time Zone Converter</a>
+                    <a href="#date-calculator" class="text-slate-600 hover:text-brand-600 transition">Date Calculator</a>
+                    
+                    <!-- Dropdown -->
+                    <div class="relative group py-2">
+                        <button class="flex items-center gap-1 text-slate-600 hover:text-brand-600 transition focus:outline-none">
+                            Other Calculators <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute right-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-slate-100 py-2 hidden group-hover:block transition duration-200 z-50">
+                            <a href="#hours-to-minutes" class="block px-4 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600">Hours to Minutes Converter</a>
+                            <a href="#work-hours-calculator" class="block px-4 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600">Work Hours Calculator</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" aria-label="Toggle navigation menu" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2">
+            <a href="#age-calculator" class="block py-2 text-slate-700 hover:text-brand-600 font-medium">Age Calculator</a>
+            <a href="#timezone-converter" class="block py-2 text-slate-700 hover:text-brand-600 font-medium">Time Zone Converter</a>
+            <a href="#date-calculator" class="block py-2 text-slate-700 hover:text-brand-600 font-medium">Date Calculator</a>
+            <div class="border-t border-slate-100 pt-2">
+                <span class="block text-xs font-semibold uppercase text-slate-400 tracking-wider mb-1">Other Calculators</span>
+                <a href="#hours-to-minutes" class="block py-1 pl-2 text-slate-600 hover:text-brand-600 text-sm">Hours to Minutes Converter</a>
+                <a href="#work-hours-calculator" class="block py-1 pl-2 text-slate-600 hover:text-brand-600 text-sm">Work Hours Calculator</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+        <!-- Above the Fold / Hero Section -->
+        <section class="bg-gradient-to-b from-brand-50 via-white to-slate-50 py-10 md:py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Hero Heading -->
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+                        Work Days Calculator – How Many Business Days Between Two Dates?
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+                        Use our free <strong>work days calculator</strong> and <strong>business days calculator</strong> to find out exactly <strong>how many working days</strong> are between two dates, <strong>exclude weekends and holidays</strong>, or add business days to any target date.
+                    </p>
+                </div>
+
+                <!-- Main Calculator Card -->
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-200/80 p-6 sm:p-8 backdrop-blur-sm">
+                    
+                    <!-- Tabs Header -->
+                    <div class="flex flex-col sm:flex-row border-b border-slate-200 mb-6 gap-2 sm:gap-0">
+                        <button id="tab-btn-between" onclick="switchTab('between')" class="flex-1 py-3 px-4 text-center font-semibold text-brand-600 border-b-2 border-brand-600 focus:outline-none transition flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-calendar-days"></i> Days Between Dates
+                        </button>
+                        <button id="tab-btn-add" onclick="switchTab('add')" class="flex-1 py-3 px-4 text-center font-medium text-slate-500 hover:text-brand-600 border-b-2 border-transparent focus:outline-none transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus-minus"></i> Add / Subtract Business Days
+                        </button>
+                    </div>
+
+                    <!-- TAB 1: Days Between Dates Form -->
+                    <div id="tab-content-between" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="start-date" class="block text-sm font-semibold text-slate-700 mb-1">Start Date</label>
+                                <input type="date" id="start-date" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                            </div>
+                            <div>
+                                <label for="end-date" class="block text-sm font-semibold text-slate-700 mb-1">End Date</label>
+                                <input type="date" id="end-date" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                            </div>
+                        </div>
+
+                        <!-- Toggle & Weekend Configuration -->
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-4">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="include-end-date" class="sr-only peer">
+                                    <div class="relative w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-600"></div>
+                                    <span class="ms-3 text-sm font-medium text-slate-700">Include End Date in Calculation</span>
+                                </label>
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="exclude-weekends" checked class="sr-only peer" onchange="toggleWeekendSelect()">
+                                    <div class="relative w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-600"></div>
+                                    <span class="ms-3 text-sm font-medium text-slate-700">Exclude Weekends</span>
+                                </label>
+                            </div>
+
+                            <div id="weekend-select-wrapper" class="pt-2 border-t border-slate-200">
+                                <label for="weekend-type" class="block text-sm font-medium text-slate-700 mb-1">Custom Weekend Configuration</label>
+                                <select id="weekend-type" class="w-full px-3 py-2 bg-white rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm">
+                                    <option value="sat-sun">Saturday & Sunday (Standard)</option>
+                                    <option value="fri-sat">Friday & Saturday (Middle East Standard)</option>
+                                    <option value="sun-only">Sunday Only</option>
+                                    <option value="sat-only">Saturday Only</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Public Holidays Input -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label for="holidays-input" class="block text-sm font-semibold text-slate-700">Custom / Public Holidays (YYYY-MM-DD)</label>
+                                <span class="text-xs text-slate-500">One date per line</span>
+                            </div>
+                            <textarea id="holidays-input" rows="2" placeholder="2026-01-01&#10;2026-07-04" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm font-mono"></textarea>
+                            
+                            <!-- Quick Holiday Add Presets -->
+                            <div class="flex flex-wrap items-center gap-2 mt-2">
+                                <span class="text-xs text-slate-500 font-medium">Quick Presets (2026):</span>
+                                <button type="button" onclick="addHolidayPreset('2026-01-01')" class="text-xs bg-slate-100 hover:bg-brand-100 hover:text-brand-700 text-slate-700 px-2.5 py-1 rounded border border-slate-200 transition">+ New Year</button>
+                                <button type="button" onclick="addHolidayPreset('2026-07-04')" class="text-xs bg-slate-100 hover:bg-brand-100 hover:text-brand-700 text-slate-700 px-2.5 py-1 rounded border border-slate-200 transition">+ Independence Day</button>
+                                <button type="button" onclick="addHolidayPreset('2026-12-25')" class="text-xs bg-slate-100 hover:bg-brand-100 hover:text-brand-700 text-slate-700 px-2.5 py-1 rounded border border-slate-200 transition">+ Christmas</button>
+                                <button type="button" onclick="clearHolidays()" class="text-xs text-red-600 hover:text-red-800 ml-auto font-medium">Clear Holidays</button>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex items-center gap-3 pt-2">
+                            <button onclick="calculateDaysBetween()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-calculator"></i> Calculate Working Days
+                            </button>
+                            <button onclick="resetBetweenForm()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-3 px-4 rounded-xl transition">
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: Add / Subtract Business Days Form -->
+                    <div id="tab-content-add" class="space-y-6 hidden">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="sm:col-span-1">
+                                <label for="add-start-date" class="block text-sm font-semibold text-slate-700 mb-1">Start Date</label>
+                                <input type="date" id="add-start-date" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                            </div>
+                            <div class="sm:col-span-1">
+                                <label for="add-days-count" class="block text-sm font-semibold text-slate-700 mb-1">Business Days</label>
+                                <input type="number" id="add-days-count" value="30" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                            </div>
+                            <div class="sm:col-span-1">
+                                <label for="add-operation" class="block text-sm font-semibold text-slate-700 mb-1">Action</label>
+                                <select id="add-operation" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800 bg-white">
+                                    <option value="add">Add (+)</option>
+                                    <option value="subtract">Subtract (-)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Exclude Options -->
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="add-exclude-weekends" checked class="sr-only peer" onchange="toggleAddWeekendSelect()">
+                                    <div class="relative w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-600"></div>
+                                    <span class="ms-3 text-sm font-medium text-slate-700">Exclude Weekends</span>
+                                </label>
+                            </div>
+
+                            <div id="add-weekend-select-wrapper" class="pt-2 border-t border-slate-200">
+                                <label for="add-weekend-type" class="block text-sm font-medium text-slate-700 mb-1">Custom Weekend Configuration</label>
+                                <select id="add-weekend-type" class="w-full px-3 py-2 bg-white rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm">
+                                    <option value="sat-sun">Saturday & Sunday (Standard)</option>
+                                    <option value="fri-sat">Friday & Saturday (Middle East Standard)</option>
+                                    <option value="sun-only">Sunday Only</option>
+                                    <option value="sat-only">Saturday Only</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex items-center gap-3 pt-2">
+                            <button onclick="calculateAddSubtractDays()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-calendar-check"></i> Calculate Target Date
+                            </button>
+                            <button onclick="resetAddForm()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-3 px-4 rounded-xl transition">
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Results Display Container -->
+                    <div id="results-container" class="mt-8 pt-6 border-t border-slate-200 hidden">
+                        <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-square-poll-vertical text-brand-600"></i> Calculation Results
+                        </h3>
+
+                        <!-- Results Cards Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                            <div class="bg-brand-50/70 p-4 rounded-xl border border-brand-100 text-center">
+                                <span class="text-xs text-brand-700 font-semibold uppercase tracking-wider block mb-1">Working Days</span>
+                                <span id="res-working-days" class="text-2xl sm:text-3xl font-black text-brand-700">0</span>
+                            </div>
+                            <div class="bg-slate-100/70 p-4 rounded-xl border border-slate-200 text-center">
+                                <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider block mb-1">Calendar Days</span>
+                                <span id="res-calendar-days" class="text-2xl sm:text-3xl font-bold text-slate-800">0</span>
+                            </div>
+                            <div class="bg-slate-100/70 p-4 rounded-xl border border-slate-200 text-center">
+                                <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider block mb-1">Weekend Days</span>
+                                <span id="res-weekend-days" class="text-2xl sm:text-3xl font-bold text-slate-800">0</span>
+                            </div>
+                            <div class="bg-slate-100/70 p-4 rounded-xl border border-slate-200 text-center">
+                                <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider block mb-1">Holidays Count</span>
+                                <span id="res-holidays-count" class="text-2xl sm:text-3xl font-bold text-slate-800">0</span>
+                            </div>
+                        </div>
+
+                        <!-- Summary & Share Controls -->
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <p id="res-summary-text" class="text-sm text-slate-700 leading-relaxed font-medium">
+                                Results will appear here.
+                            </p>
+                            <div class="flex items-center gap-2 w-full sm:w-auto">
+                                <button onclick="copySummary()" class="flex-1 sm:flex-none px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center justify-center gap-1">
+                                    <i class="fa-regular fa-copy"></i> Copy
+                                </button>
+                                <button onclick="window.print()" class="flex-1 sm:flex-none px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center justify-center gap-1">
+                                    <i class="fa-solid fa-print"></i> Print
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section Container -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+            <!-- 1. How to Use Section -->
+            <section id="how-to-use" class="scroll-mt-20">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center text-base"><i class="fa-solid fa-list-check"></i></span>
+                    How to Use This Work Days Calculator
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-sm">
+                        <div class="w-10 h-10 rounded-full bg-brand-50 text-brand-600 font-bold flex items-center justify-center mb-4">1</div>
+                        <h3 class="font-bold text-slate-800 mb-2">Select Your Date Range</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Choose a start date and an end date using the interactive date pickers, or switch tabs to add business days forward.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-sm">
+                        <div class="w-10 h-10 rounded-full bg-brand-50 text-brand-600 font-bold flex items-center justify-center mb-4">2</div>
+                        <h3 class="font-bold text-slate-800 mb-2">Configure Weekends & Holidays</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Toggle standard Saturday/Sunday weekends or specify custom rest days, and input any federal or corporate holidays.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-sm">
+                        <div class="w-10 h-10 rounded-full bg-brand-50 text-brand-600 font-bold flex items-center justify-center mb-4">3</div>
+                        <h3 class="font-bold text-slate-800 mb-2">View Instant Results</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Click calculate to view a full breakdown of working days, total calendar days, weekends, and holidays excluded.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. How Working Days Are Calculated -->
+            <section id="how-calculated" class="scroll-mt-20 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center text-base"><i class="fa-solid fa-calculator"></i></span>
+                    How Working Days Are Calculated
+                </h2>
+                <div class="prose max-w-none text-slate-600 space-y-4 leading-relaxed">
+                    <p>
+                        Calculating <strong>working days between two dates</strong> requires separating regular business operations from non-working days. While a full calendar year consists of 365 days (or 366 in a leap year), not all days are active business days.
+                    </p>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 my-4">
+                        <p class="font-mono text-sm text-slate-800 font-semibold mb-1">Formula:</p>
+                        <p class="font-mono text-sm text-brand-700">Working Days = Total Calendar Days – (Weekend Days + Non-Weekend Public Holidays)</p>
+                    </div>
+                    <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base">
+                        <li><strong>Calendar Days vs Working Days:</strong> Calendar days include every day from Monday to Sunday. Working days (or business days) exclude non-working weekend days and official public holidays.</li>
+                        <li><strong>Leap Years:</strong> In leap years (such as 2024 or 2028), February contains 29 days, which can adjust the annual working day total depending on where February 29 falls in the week.</li>
+                        <li><strong>Start & End Date Inclusivity:</strong> Standard calculations measure the duration interval between two dates. Toggling "Include End Date" adds 1 additional day if the target end date lands on a valid working day.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 3. Features Section -->
+            <section id="features" class="scroll-mt-20">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center text-base"><i class="fa-solid fa-star"></i></span>
+                    Features of Our Work Days Calculator
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-xl border border-slate-200/80 flex items-start gap-3">
+                        <i class="fa-solid fa-globe text-brand-600 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-slate-800 text-base">Custom Weekend Patterns</h3>
+                            <p class="text-sm text-slate-600">Support for standard Sat/Sun weekends, Fri/Sat (Middle East), or single rest-day configurations.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl border border-slate-200/80 flex items-start gap-3">
+                        <i class="fa-solid fa-calendar-minus text-brand-600 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-slate-800 text-base">Holidays Exclusion</h3>
+                            <p class="text-sm text-slate-600">Easily enter specific custom holiday dates or use preset quick-add options.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl border border-slate-200/80 flex items-start gap-3">
+                        <i class="fa-solid fa-right-left text-brand-600 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-slate-800 text-base">Add & Subtract Business Days</h3>
+                            <p class="text-sm text-slate-600">Project target completion dates by adding or subtracting X business days instantly.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl border border-slate-200/80 flex items-start gap-3">
+                        <i class="fa-solid fa-mobile-screen text-brand-600 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-slate-800 text-base">100% Mobile Friendly</h3>
+                            <p class="text-sm text-slate-600">Fully responsive, lightning-fast vanilla JavaScript app that works on all browsers and devices.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Why Use Section -->
+            <section id="why-use" class="scroll-mt-20 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center text-base"><i class="fa-solid fa-circle-question"></i></span>
+                    Why Use an Online Work Days Calculator?
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-base mb-1">For Project Managers</h3>
+                        <p>Accurately estimate sprint durations, project milestones, and delivery deadlines without manually counting days on a physical calendar.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-base mb-1">For HR & Payroll Teams</h3>
+                        <p>Calculate exact employee billable hours, paid time off (PTO) deductions, and monthly working day counts for accurate salary processing.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-base mb-1">For Freelancers & Contractors</h3>
+                        <p>Determine invoice due dates based on 30 business day terms and calculate expected working hours on client deliverables.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-base mb-1">For Legal & Financial Contracts</h3>
+                        <p>Ensure legal compliance when contracts mandate response periods or settlement times in business days excluding holidays.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. FAQ Section -->
+            <section id="faq" class="scroll-mt-20">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center text-base"><i class="fa-solid fa-comments"></i></span>
+                    Frequently Asked Questions (FAQ)
+                </h2>
+                
+                <div class="space-y-3">
+                    <!-- FAQ Item 1 -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(1)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 hover:text-brand-600 flex justify-between items-center focus:outline-none">
+                            <span>How many working days between two dates?</span>
+                            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-answer-1" class="hidden px-5 pb-4 text-sm text-slate-600 border-t border-slate-100 pt-3">
+                            The number of working days between two dates depends on the date span, weekend days, and official public holidays. On average, a standard week contains 5 working days. Use our tool above to input your exact start and end dates for a precise count.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(2)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 hover:text-brand-600 flex justify-between items-center focus:outline-none">
+                            <span>Are start and end dates included?</span>
+                            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-answer-2" class="hidden px-5 pb-4 text-sm text-slate-600 border-t border-slate-100 pt-3">
+                            Standard calendar math calculates the difference between two points in time. Our calculator gives you full flexibility: check the "Include End Date" checkbox to include the final day in your total calculation if required.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(3)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 hover:text-brand-600 flex justify-between items-center focus:outline-none">
+                            <span>How to calculate business days excluding holidays?</span>
+                            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-answer-3" class="hidden px-5 pb-4 text-sm text-slate-600 border-t border-slate-100 pt-3">
+                            To calculate business days excluding holidays, select your start and end dates, verify your weekend setup (e.g., Saturday/Sunday), and enter any specific holiday dates into the public holidays box before clicking calculate.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(4)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 hover:text-brand-600 flex justify-between items-center focus:outline-none">
+                            <span>How many working days in a year / month / 2026?</span>
+                            <i id="faq-icon-4" class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-answer-4" class="hidden px-5 pb-4 text-sm text-slate-600 border-t border-slate-100 pt-3">
+                            In 2026 (a standard year with 365 days), there are 261 potential weekdays (Monday–Friday). After accounting for 10 standard federal public holidays, a typical work year comprises approximately 251 working days.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(5)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 hover:text-brand-600 flex justify-between items-center focus:outline-none">
+                            <span>Difference between working days and calendar days?</span>
+                            <i id="faq-icon-5" class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-answer-5" class="hidden px-5 pb-4 text-sm text-slate-600 border-t border-slate-100 pt-3">
+                            Calendar days include all 7 days of the week continuously. Working days (or business days) strictly count operational days, skipping designated weekends and statutory public holidays.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(6)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 hover:text-brand-600 flex justify-between items-center focus:outline-none">
+                            <span>How to add 30 business days to a date?</span>
+                            <i id="faq-icon-6" class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-answer-6" class="hidden px-5 pb-4 text-sm text-slate-600 border-t border-slate-100 pt-3">
+                            Switch to the "Add / Subtract Business Days" tab on our calculator, select your start date, enter 30 as the business day count, choose "Add", and click calculate to reveal the target date.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(7)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 hover:text-brand-600 flex justify-between items-center focus:outline-none">
+                            <span>Do public holidays count as working days?</span>
+                            <i id="faq-icon-7" class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-answer-7" class="hidden px-5 pb-4 text-sm text-slate-600 border-t border-slate-100 pt-3">
+                            No. Public, bank, and statutory holidays are officially treated as non-working days in corporate, banking, and legal schedules.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(8)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 hover:text-brand-600 flex justify-between items-center focus:outline-none">
+                            <span>Can I exclude only Sundays / custom weekends?</span>
+                            <i id="faq-icon-8" class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-200"></i>
+                        </button>
+                        <div id="faq-answer-8" class="hidden px-5 pb-4 text-sm text-slate-600 border-t border-slate-100 pt-3">
+                            Yes! Our calculator supports multiple weekend structures, including Sunday-only rest days, Friday/Saturday weekends, or Saturday-only schedules.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Related Tools / Internal Links -->
+            <section id="related-tools" class="scroll-mt-20">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center text-base"><i class="fa-solid fa-link"></i></span>
+                    Related Tools & Calculators
+                </h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <a href="#date-difference" class="p-4 bg-white rounded-xl border border-slate-200/80 hover:border-brand-500 hover:shadow-md transition text-center group">
+                        <i class="fa-solid fa-calendar-day text-brand-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="block text-sm font-semibold text-slate-800 group-hover:text-brand-600">Date Difference Calculator</span>
+                    </a>
+                    <a href="#birthday-countdown" class="p-4 bg-white rounded-xl border border-slate-200/80 hover:border-brand-500 hover:shadow-md transition text-center group">
+                        <i class="fa-solid fa-cake-candles text-brand-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="block text-sm font-semibold text-slate-800 group-hover:text-brand-600">Birthday Countdown</span>
+                    </a>
+                    <a href="#age-calculator" class="p-4 bg-white rounded-xl border border-slate-200/80 hover:border-brand-500 hover:shadow-md transition text-center group">
+                        <i class="fa-solid fa-user-clock text-brand-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="block text-sm font-semibold text-slate-800 group-hover:text-brand-600">Age Calculator</span>
+                    </a>
+                    <a href="#age-difference" class="p-4 bg-white rounded-xl border border-slate-200/80 hover:border-brand-500 hover:shadow-md transition text-center group">
+                        <i class="fa-solid fa-people-arrows text-brand-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="block text-sm font-semibold text-slate-800 group-hover:text-brand-600">Age Difference Calculator</span>
+                    </a>
+                    <a href="#dog-years" class="p-4 bg-white rounded-xl border border-slate-200/80 hover:border-brand-500 hover:shadow-md transition text-center group">
+                        <i class="fa-solid fa-dog text-brand-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="block text-sm font-semibold text-slate-800 group-hover:text-brand-600">Dog Years Calculator</span>
+                    </a>
+                    <a href="#hours-to-minutes" class="p-4 bg-white rounded-xl border border-slate-200/80 hover:border-brand-500 hover:shadow-md transition text-center group">
+                        <i class="fa-solid fa-clock text-brand-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="block text-sm font-semibold text-slate-800 group-hover:text-brand-600">Hours to Minutes Converter</span>
+                    </a>
+                    <a href="#work-hours-calculator" class="p-4 bg-white rounded-xl border border-slate-200/80 hover:border-brand-500 hover:shadow-md transition text-center group sm:col-span-2 lg:col-span-1">
+                        <i class="fa-solid fa-business-time text-brand-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="block text-sm font-semibold text-slate-800 group-hover:text-brand-600">Work Hours Calculator</span>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-brand-500"></i> TimeCalc Pro
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        TimeCalc Pro provides free, accurate time and date calculation tools for project planning, payroll processing, and personal scheduling.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#privacy" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#terms" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#sitemap" class="hover:text-white transition">Sitemap</a></li>
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">About Us</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Our mission is to simplify business day and time calculations with intuitive, privacy-friendly online utilities.
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500">
+                <p>&copy; 2026 TimeCalc Pro. All rights reserved. Designed for optimal speed and reliability.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla JavaScript Implementation -->
+    <script>
+        // DOM Elements & Initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default dates
+            const today = new Date();
+            const thirtyDaysLater = new Date();
+            thirtyDaysLater.setDate(today.getDate() + 30);
+
+            document.getElementById('start-date').value = formatDateForInput(today);
+            document.getElementById('end-date').value = formatDateForInput(thirtyDaysLater);
+            document.getElementById('add-start-date').value = formatDateForInput(today);
+
+            // Setup Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Perform initial calculation
+            calculateDaysBetween();
+        });
+
+        // Date Helper Functions
+        function formatDateForInput(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        function parseDate(dateStr) {
+            if (!dateStr) return null;
+            const parts = dateStr.split('-');
+            if (parts.length !== 3) return null;
+            return new Date(parts[0], parts[1] - 1, parts[2]);
+        }
+
+        // Tab Switching Logic
+        function switchTab(tab) {
+            const tabBetweenBtn = document.getElementById('tab-btn-between');
+            const tabAddBtn = document.getElementById('tab-btn-add');
+            const contentBetween = document.getElementById('tab-content-between');
+            const contentAdd = document.getElementById('tab-content-add');
+
+            if (tab === 'between') {
+                tabBetweenBtn.classList.add('text-brand-600', 'border-brand-600');
+                tabBetweenBtn.classList.remove('text-slate-500', 'border-transparent');
+                tabAddBtn.classList.add('text-slate-500', 'border-transparent');
+                tabAddBtn.classList.remove('text-brand-600', 'border-brand-600');
+
+                contentBetween.classList.remove('hidden');
+                contentAdd.classList.add('hidden');
+                calculateDaysBetween();
+            } else {
+                tabAddBtn.classList.add('text-brand-600', 'border-brand-600');
+                tabAddBtn.classList.remove('text-slate-500', 'border-transparent');
+                tabBetweenBtn.classList.add('text-slate-500', 'border-transparent');
+                tabBetweenBtn.classList.remove('text-brand-600', 'border-brand-600');
+
+                contentAdd.classList.remove('hidden');
+                contentBetween.classList.add('hidden');
+                calculateAddSubtractDays();
+            }
+        }
+
+        // Weekend Selector Toggle Controls
+        function toggleWeekendSelect() {
+            const excludeCheck = document.getElementById('exclude-weekends').checked;
+            const selectWrapper = document.getElementById('weekend-select-wrapper');
+            selectWrapper.style.display = excludeCheck ? 'block' : 'none';
+        }
+
+        function toggleAddWeekendSelect() {
+            const excludeCheck = document.getElementById('add-exclude-weekends').checked;
+            const selectWrapper = document.getElementById('add-weekend-select-wrapper');
+            selectWrapper.style.display = excludeCheck ? 'block' : 'none';
+        }
+
+        // Holiday Input Presets
+        function addHolidayPreset(dateStr) {
+            const textarea = document.getElementById('holidays-input');
+            const currentVal = textarea.value.trim();
+            if (currentVal.includes(dateStr)) return;
+            textarea.value = currentVal ? currentVal + '\n' + dateStr : dateStr;
+        }
+
+        function clearHolidays() {
+            document.getElementById('holidays-input').value = '';
+        }
+
+        // Parse Weekend Days Array Based on Select Option
+        function getWeekendDays(optionValue) {
+            switch (optionValue) {
+                case 'sat-sun': return [0, 6]; // Sun, Sat
+                case 'fri-sat': return [5, 6]; // Fri, Sat
+                case 'sun-only': return [0];    // Sun
+                case 'sat-only': return [6];    // Sat
+                default: return [0, 6];
+            }
+        }
+
+        // Parse Holidays Set from Textarea
+        function getHolidaysSet() {
+            const text = document.getElementById('holidays-input').value;
+            const lines = text.split('\n');
+            const holidaySet = new Set();
+            lines.forEach(line => {
+                const trimmed = line.trim();
+                if (trimmed && /^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
+                    holidaySet.add(trimmed);
+                }
+            });
+            return holidaySet;
+        }
+
+        // Tab 1: Calculate Working Days Between Two Dates
+        function calculateDaysBetween() {
+            const startDateStr = document.getElementById('start-date').value;
+            const endDateStr = document.getElementById('end-date').value;
+
+            if (!startDateStr || !endDateStr) return;
+
+            let start = parseDate(startDateStr);
+            let end = parseDate(endDateStr);
+
+            if (start > end) {
+                alert('Start date must be before or equal to the end date.');
+                return;
+            }
+
+            const includeEnd = document.getElementById('include-end-date').checked;
+            const excludeWeekends = document.getElementById('exclude-weekends').checked;
+            const weekendType = document.getElementById('weekend-type').value;
+            const weekendDays = excludeWeekends ? getWeekendDays(weekendType) : [];
+            const holidaySet = getHolidaysSet();
+
+            let workingDays = 0;
+            let calendarDays = 0;
+            let weekendDaysCount = 0;
+            let holidaysCount = 0;
+
+            let cur = new Date(start.getTime());
+            
+            // If includeEnd is false, loop until cur < end; if true, cur <= end
+            while (includeEnd ? cur <= end : cur < end) {
+                calendarDays++;
+                const curStr = formatDateForInput(cur);
+                const dayOfWeek = cur.getDay();
+
+                const isWeekend = weekendDays.includes(dayOfWeek);
+                const isHoliday = holidaySet.has(curStr);
+
+                if (isWeekend) {
+                    weekendDaysCount++;
+                } else if (isHoliday) {
+                    holidaysCount++;
+                } else {
+                    workingDays++;
+                }
+
+                cur.setDate(cur.getDate() + 1);
+            }
+
+            // Display Results
+            document.getElementById('res-working-days').textContent = workingDays;
+            document.getElementById('res-calendar-days').textContent = calendarDays;
+            document.getElementById('res-weekend-days').textContent = weekendDaysCount;
+            document.getElementById('res-holidays-count').textContent = holidaysCount;
+
+            const summary = `Between <strong>${startDateStr}</strong> and <strong>${endDateStr}</strong>, there are <strong>${workingDays} working days</strong> out of <strong>${calendarDays} total calendar days</strong> (excluded ${weekendDaysCount} weekend days and ${holidaysCount} holidays).`;
+            document.getElementById('res-summary-text').innerHTML = summary;
+
+            document.getElementById('results-container').classList.remove('hidden');
+        }
+
+        // Tab 2: Add or Subtract Business Days
+        function calculateAddSubtractDays() {
+            const startDateStr = document.getElementById('add-start-date').value;
+            const daysCount = parseInt(document.getElementById('add-days-count').value, 10);
+            const operation = document.getElementById('add-operation').value;
+
+            if (!startDateStr || isNaN(daysCount) || daysCount < 0) return;
+
+            let start = parseDate(startDateStr);
+            const excludeWeekends = document.getElementById('add-exclude-weekends').checked;
+            const weekendType = document.getElementById('add-weekend-type').value;
+            const weekendDays = excludeWeekends ? getWeekendDays(weekendType) : [];
+            const holidaySet = getHolidaysSet();
+
+            let countedBusinessDays = 0;
+            let totalCalendarDaysCount = 0;
+            let cur = new Date(start.getTime());
+            const step = operation === 'add' ? 1 : -1;
+
+            while (countedBusinessDays < daysCount) {
+                cur.setDate(cur.getDate() + step);
+                totalCalendarDaysCount++;
+
+                const curStr = formatDateForInput(cur);
+                const dayOfWeek = cur.getDay();
+
+                const isWeekend = weekendDays.includes(dayOfWeek);
+                const isHoliday = holidaySet.has(curStr);
+
+                if (!isWeekend && !isHoliday) {
+                    countedBusinessDays++;
+                }
+            }
+
+            const targetDateStr = formatDateForInput(cur);
+
+            // Update UI Numbers
+            document.getElementById('res-working-days').textContent = daysCount;
+            document.getElementById('res-calendar-days').textContent = totalCalendarDaysCount;
+            document.getElementById('res-weekend-days').textContent = totalCalendarDaysCount - daysCount;
+            document.getElementById('res-holidays-count').textContent = '—';
+
+            const actionWord = operation === 'add' ? 'Adding' : 'Subtracting';
+            const resultWord = operation === 'add' ? 'after' : 'before';
+
+            const summary = `${actionWord} <strong>${daysCount} business days</strong> to <strong>${startDateStr}</strong> yields a target date of <strong>${targetDateStr}</strong> (${totalCalendarDaysCount} total calendar days elapsed).`;
+            document.getElementById('res-summary-text').innerHTML = summary;
+
+            document.getElementById('results-container').classList.remove('hidden');
+        }
+
+        // Reset Functions
+        function resetBetweenForm() {
+            const today = new Date();
+            const thirtyDaysLater = new Date();
+            thirtyDaysLater.setDate(today.getDate() + 30);
+
+            document.getElementById('start-date').value = formatDateForInput(today);
+            document.getElementById('end-date').value = formatDateForInput(thirtyDaysLater);
+            document.getElementById('include-end-date').checked = false;
+            document.getElementById('exclude-weekends').checked = true;
+            document.getElementById('weekend-type').value = 'sat-sun';
+            document.getElementById('holidays-input').value = '';
+            toggleWeekendSelect();
+            calculateDaysBetween();
+        }
+
+        function resetAddForm() {
+            const today = new Date();
+            document.getElementById('add-start-date').value = formatDateForInput(today);
+            document.getElementById('add-days-count').value = '30';
+            document.getElementById('add-operation').value = 'add';
+            document.getElementById('add-exclude-weekends').checked = true;
+            document.getElementById('add-weekend-type').value = 'sat-sun';
+            toggleAddWeekendSelect();
+            calculateAddSubtractDays();
+        }
+
+        // FAQ Toggle Function
+        function toggleFaq(index) {
+            const answer = document.getElementById(`faq-answer-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                answer.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Copy Summary Utility
+        function copySummary() {
+            const summaryText = document.getElementById('res-summary-text').innerText;
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(summaryText).then(() => {
+                    alert('Summary copied to clipboard!');
+                });
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = summaryText;
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('Summary copied to clipboard!');
+                } catch (err) {
+                    alert('Failed to copy text.');
+                }
+                document.body.removeChild(textarea);
+            }
+        }
+    </script>
+</body>
+</html>
